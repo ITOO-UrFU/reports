@@ -36,3 +36,11 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+/out_test_motivate.csv
+/profile.csv
+/result_UrFU_INCLUSIONSUP_fall_2019.csv
+/result_UrFU_MODULDESIGN_fall_2019.csv
+/result_UrFU_MOOC1_2019.csv
+/result_UrFU_MOTIVATION_fall_2019.csv
+/result_UrFU_VIRTUALSPACE_fall_2019.csv
+/result.csv
