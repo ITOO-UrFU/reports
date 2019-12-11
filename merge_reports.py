@@ -1,4 +1,4 @@
-import pandas
+import pandas as pd
 import os
 import datetime
 
@@ -43,8 +43,10 @@ files = get_files()
 for f in files:
     REPORTS.setdefault(parse_filename(f)[0], parse_filename(f)[1])
 
-for course in REPORTS.keys():
-    print(course)
+
+print(REPORTS)
+
+reports_df = pd.read_csv()
 
 
 # print(f, date)
