@@ -21,33 +21,32 @@ def get_files():
 def parse_filename(filename):
     course = None
     rtype = None
+    reports = []
     f = filename.split()[-1].split(".")[0].split("_")
     date = datetime.datetime.strptime(f[-1], '%Y-%m-%d-%H%M')
     f = "_".join(f[:-1])
 
     for type in ("proctored", "student", "grade"):
-        f = f.split(type)
-        if len(f) == 1:
-            f = f[0]
-        else:
+        print(f)
+        tmp = f.split(type)
+        if len(f) != 1:
             course = f[0][:-1]
             rtype = f"{type}{f[1]}"
-            break
-    if course and rtype:
-        return [course, {"filename": filename, "type": rtype, "date": date}]
-    else:
-        raise Exception
+            reports.append({"filename": filename, "type": rtype, "date": date})
+
+    return course, reports
 
 
 files = get_files()
 for f in files:
-    REPORTS.setdefault(parse_filename(f)[0], parse_filename(f)[1])
+    parsed = parse_filename(f)
+    REPORTS.setdefault(parsed[0], parsed[1])
 
+for i in REPORTS.keys():
+    print(REPORTS[i])
+# print(REPORTS)
 
-print(REPORTS)
-
-reports_df = pd.read_csv()
-
+# reports_df = pd.read_csv()
 
 # print(f, date)
 
